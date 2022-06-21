@@ -4,6 +4,56 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-size: 62.5%;
+  --bg-color: #121214;
+  --base-color: 194;
+  --bg-primary: hsl(var(--base-color), 100%, 63%);
+  --bg-primary-light: hsla(var(--base-color), 100%, 63%, 0.13);
+
+  --tc-primary: #FFF;
+
+}
+
 body {
+  background-color: var(--bg-color);
+  color: var(--tc-primary);
+
   font-family: 'Roboto', sans-serif;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button svg {
+ width: clamp(3.2rem, 2rem + 12vw, 6.4rem);
+}
+
+.hide {
+  display: none;
+}
+
+#timer {
+  font-size: clamp(2rem, 4rem + 10vw, 8.8rem);
+  display: flex;
+}
+
+#controls {
+  background-color: var(--bg-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+  width: clamp(10rem, 10rem + 30vw, 22.8rem);
+  height: clamp(8rem, 5rem + 10vw, 10.8rem);
+  border-radius: 9999px;
+}
+
+.play svg path,
+.pause svg path,
+.sound-on svg path { 
+  fill: var(--bg-primary);
 }
