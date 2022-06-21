@@ -8,29 +8,54 @@ const minutesDisplay = document.querySelector('.minutes');
 const secondsDisplay = document.querySelector('.seconds');
 
 
-let minutes, seconds;
+let minutes = 25;
+let seconds = 0;
+
+let timerTimeOut;
+
+const resetControls = () => {
+  buttonPlay.classList.remove('hide');
+  buttonPause.classList.add('hide');
+  buttonSet.classList.remove('hide');
+  buttonStop.classList.add('hide');
+}
+
+const resetTimeOut = () => {
+  clearTimeout(timerTimeOut);
+}
+
+const updateTimeDisplay = (minutes, seconds) => {
+  minutesDisplay.textContent = String(minutes).padStart(2,"0");
+  secondsDisplay.textContent = String(seconds).padStart(2,"0");
+}
 
 const countDown = () => {
-  setTimeout(() => {
+  timerTimeOut = setTimeout(() => {
     let minutes = Number(minutesDisplay.textContent);
     let seconds = Number(secondsDisplay.textContent);
 
-    if(seconds <= 0) {
-      if(seconds==0) {
-        if(minutes==0) {
-          return;
-        }
-        minutesDisplay.textContent = String(minutes - 1).padStart(2,"0");
+    if(seconds == 0 && minutes == 0){
+      resetControls();
+      return;
+    }else{
+      if(seconds == 0) {
+        minutes--;
+        updateTimeDisplay(minutes,seconds);
+        seconds = 10;
+  
       }
-      seconds = 60;
+      seconds--;
+  
+      updateTimeDisplay(minutes,seconds);
     }
-    
-    secondsDisplay.textContent = String(seconds - 1).padStart(2,"0");
-   
+  
     countDown();
   },
    1000);
 }
+
+
+
 
 buttonPlay.addEventListener('click', () => {
   buttonPlay.classList.add('hide');
@@ -43,18 +68,18 @@ buttonPlay.addEventListener('click', () => {
 buttonPause.addEventListener('click', () => {
   buttonPause.classList.add('hide');
   buttonPlay.classList.remove('hide');
+  resetTimeOut();
 });
 
 buttonStop.addEventListener('click', () => {
-  buttonPlay.classList.remove('hide');
-  buttonPause.classList.add('hide');
-  buttonSet.classList.remove('hide');
-  buttonStop.classList.add('hide');
+  resetControls();
+  resetTimeOut();
+  updateTimeDisplay(minutes,0);
 });
 
 buttonSet.addEventListener('click', () => {
   minutes = Number(prompt("Defina o valor do contador:"));
-  minutesDisplay.textContent = String(minutes).padStart(2,"0");
+  updateTimeDisplay(minutes,0);
 })
 
 buttonSoundOff.addEventListener('click',() => {
