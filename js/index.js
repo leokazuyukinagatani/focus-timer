@@ -1,5 +1,5 @@
-import { Timer } from './timer.js';
-import { Controls } from './controls.js';
+import Timer from './timer.js';
+import Controls from './controls.js';
 
 
 const buttonPlay = document.querySelector('.play');
@@ -11,9 +11,10 @@ const buttonSoundOff = document.querySelector('.sound-off');
 const minutesDisplay = document.querySelector('.minutes');
 const secondsDisplay = document.querySelector('.seconds');
 
-let minutes = 25;
+let minutes = Number(minutesDisplay.textContent);
 
-let timerTimeOut;
+
+
 const controls = Controls(
   {
     buttonPlay,
@@ -27,35 +28,30 @@ const timer = Timer(
 {
   minutesDisplay,
   secondsDisplay,
-  timerTimeOut,
-  controls,
+  resetControls: controls.reset,
 });
 
 
 
 buttonPlay.addEventListener('click', () => {
-  buttonPlay.classList.add('hide');
-  buttonPause.classList.remove('hide');
-  buttonSet.classList.add('hide');
-  buttonStop.classList.remove('hide');
+  controls.play();
   timer.countDown();
 });
 
 buttonPause.addEventListener('click', () => {
-  buttonPause.classList.add('hide');
-  buttonPlay.classList.remove('hide');
-  timer.resetTimeOut();
+  controls.pause();
+  timer.hold();
 });
 
 buttonStop.addEventListener('click', () => {
-  controls.resetControls();
-  timer.resetTimeOut();
-  timer.updateTimeDisplay(minutes,0);
+  controls.reset();
+  timer.hold();
+  timer.updateMinutes(minutes);
 });
 
 buttonSet.addEventListener('click', () => {
-  minutes = Number(prompt("Defina o valor do contador:"));
-  timer.updateTimeDisplay(minutes,0);
+  minutes = controls.set();
+  timer.updateMinutes(minutes);
 })
 
 buttonSoundOff.addEventListener('click',() => {

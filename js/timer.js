@@ -1,17 +1,19 @@
-export const Timer = (
+export default function Timer(
     {
       minutesDisplay,
       secondsDisplay,
-      timerTimeOut,
-      controls
+      resetControls,
 
-    }) =>
+    })
   {
-    const resetTimeOut = () => {
+    let timerTimeOut;
+
+    const hold = () => {
       clearTimeout(timerTimeOut);
     }
     
-    const updateTimeDisplay = (minutes, seconds) => {
+    const updateDisplay = (minutes, seconds) => {
+      
       minutesDisplay.textContent = String(minutes).padStart(2,"0");
       secondsDisplay.textContent = String(seconds).padStart(2,"0");
     }
@@ -22,18 +24,18 @@ export const Timer = (
         let seconds = Number(secondsDisplay.textContent);
     
         if(seconds == 0 && minutes == 0){
-          controls.resetControls();
+          resetControls();
           return;
         }else{
           if(seconds == 0) {
             minutes--;
-            updateTimeDisplay(minutes,seconds);
+            updateDisplay(minutes,seconds);
             seconds = 60;
       
           }
           seconds--;
       
-          updateTimeDisplay(minutes,seconds);
+          updateDisplay(minutes,seconds);
         }
       
         countDown();
@@ -41,7 +43,16 @@ export const Timer = (
       1000);
     }
 
-    return( { countDown , resetTimeOut, updateTimeDisplay } );
+    const updateMinutes= (newMinutes) => {
+      if(newMinutes){
+        updateDisplay(newMinutes,'0');
+      }else{
+        return;
+      }
+    } 
+
+
+    return( { countDown , hold, updateDisplay, updateMinutes} );
 
 
 }
