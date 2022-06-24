@@ -43,14 +43,13 @@ export default function Events (
   const soundOff = () => {
     buttonSoundOn.classList.remove('hide');
     buttonSoundOff.classList.add('hide');
-    sound.bgAudio.pause();
-  
-  }
-
-  const soundOn = () => {
-    buttonSoundOn.classList.add('hide');
-    buttonSoundOff.classList.remove('hide');
     sound.bgAudio.play();
+  }
+  
+  const soundOn = () => {
+    buttonSoundOff.classList.remove('hide');
+    buttonSoundOn.classList.add('hide');
+    sound.bgAudio.pause();  
   
   }
 
