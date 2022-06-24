@@ -9,7 +9,7 @@ export default function Timer(
     })
   {
     let timerTimeOut;
-
+ 
     const hold = () => {
       clearTimeout(timerTimeOut);
     }
