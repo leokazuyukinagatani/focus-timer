@@ -6,9 +6,9 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-- [JSS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" />](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 ## 💻 Projeto
 
 O projeto Focus Timer é uma aplicação que disponibiliza um timer simples com som de fundo, ele foi elaborado nas aulas do stage 05 no programa Explorer da Rocketseat.
