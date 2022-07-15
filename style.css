@@ -19,15 +19,14 @@ body {
   background-color: var(--bg-color);
   color: var(--tc-primary);
   font-family: 'Roboto', sans-serif;
-
-
-  display: grid;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main {
-  justify-self: center;
-  align-self: end;
+  
 }
 
 button {
@@ -68,7 +67,8 @@ button svg {
 }
 
 footer {
-  justify-self: end;
-  align-self: end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   padding: 0 4rem 3.2rem 0;
 }
