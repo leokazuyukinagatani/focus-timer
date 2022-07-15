@@ -6,7 +6,7 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-[<img height="15px" width="15px"src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" />](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+[<img style="width=15px;height=15px;"src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" />](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 ## 💻 Projeto
